@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import "./App.css";
+import Input from "./Input";
 
 function App() {
   const [task, setTask] = useState("");
@@ -12,7 +14,7 @@ function App() {
       <div className="h-3/4  w-2/4 bg-orange-400 rounded-xl shadow-lg">
         <h2 className="text-2xl font-bold mt-5 text-white">To DO List</h2>
         {/* header */}
-        <div className="flex mt-20 mx-20 content-between border-none space-x-12">
+        <div className="flex mt-20 mx-20 content-between border-none space-x-12 mb-8">
           <input
             className="w-3/4 h-9 rounded-xl p-5 "
             placeholder="Enter task"
@@ -28,6 +30,12 @@ function App() {
             Add
           </button>
         </div>
+
+        {/* //here goes the content */}
+        <Input />
+        <Input />
+        <Input />
+        <Input />
       </div>
     </div>
   );
