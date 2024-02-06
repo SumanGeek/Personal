@@ -1,12 +1,16 @@
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { addTodo } from "./context/todoSlice.js";
 import "./App.css";
 import Input from "./Input";
 
 function App() {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState(" ");
+
+  const dispatch = useDispatch();
   const handleTask = (e) => {
     e.preventDefault();
+    dispatch(addTodo(task));
     setTask("");
   };
   return (
@@ -32,9 +36,6 @@ function App() {
         </div>
 
         {/* //here goes the content */}
-        <Input />
-        <Input />
-        <Input />
         <Input />
       </div>
     </div>
