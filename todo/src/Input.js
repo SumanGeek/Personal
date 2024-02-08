@@ -1,10 +1,13 @@
 import React from "react";
 import { MdDelete } from "react-icons/md";
 import { MdUpdate } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeTodo } from "./context/todoSlice.js";
 
 const Input = () => {
   const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
   return (
     <div>
       {todos.map((todo) => (
@@ -17,7 +20,10 @@ const Input = () => {
             {todo.text}
           </h3>
           <div className="flex items-center justify-between space-x-3">
-            <button className="text-white text-md font-bold rounded-xl ">
+            <button
+              className="text-white text-md font-bold rounded-xl "
+              onClick={() => dispatch(removeTodo(todo.id))}
+            >
               <MdDelete className="h-[40px] w-[30px]" />
             </button>
             <button className="text-white text-md font-bold rounded-xl">
